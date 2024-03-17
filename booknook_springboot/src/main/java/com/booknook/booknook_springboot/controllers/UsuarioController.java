@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
 @RequestMapping("api/usuario")
-public class UserController {
+public class UsuarioController {
 
     @GetMapping
     public String getMethodName() {
