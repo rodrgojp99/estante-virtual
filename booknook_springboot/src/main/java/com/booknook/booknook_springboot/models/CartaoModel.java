@@ -19,6 +19,8 @@ import jakarta.validation.constraints.NotEmpty;
 public class CartaoModel {
 
     @Id
+    @NotBlank
+    @Column(length = 16)
     private String numero;
 
     @Column
