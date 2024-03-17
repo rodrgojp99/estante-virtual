@@ -1,13 +1,16 @@
 package com.booknook.booknook_springboot.models;
 
-import io.micrometer.common.lang.NonNull;
+
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
+
 
 @Entity
 @Table(name = "usuario")
@@ -32,8 +35,9 @@ public class UsuarioModel {
     @Column(length = 50)
     private String endereco;
 
-    @Column(length = 16)
-    private String numero_cartao;
+    @Column
+    @OneToMany(mappedBy = "usuario")
+    private List<CartaoModel> cartoes;
 
     @Column(length = 8)
     private String cep;
@@ -82,14 +86,6 @@ public class UsuarioModel {
         this.endereco = endereco;
     }
 
-    public String getNumero_cartao() {
-        return numero_cartao;
-    }
-
-    public void setNumero_cartao(String numero_cartao) {
-        this.numero_cartao = numero_cartao;
-    }
-
     public String getCep() {
         return cep;
     }
@@ -106,4 +102,15 @@ public class UsuarioModel {
         this.senha = senha;
     }
 
+    public List<CartaoModel> getCartoes() {
+        return cartoes;
+    }
+
+    public void setCartoes(List<CartaoModel> cartoes) {
+        this.cartoes = cartoes;
+    }
+
+
+
+    
 }
