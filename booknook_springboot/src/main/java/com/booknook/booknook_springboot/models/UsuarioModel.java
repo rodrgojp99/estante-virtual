@@ -3,11 +3,14 @@ package com.booknook.booknook_springboot.models;
 
 import java.util.List;
 
+import org.hibernate.validator.constraints.br.CPF;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 
@@ -18,6 +21,7 @@ public class UsuarioModel {
 
     @Column(length = 11)
     @Id @NotBlank
+    @CPF
     private String cpf;
 
     @Column(length = 50)
@@ -26,6 +30,7 @@ public class UsuarioModel {
     
     @Column(length = 45)
     @NotBlank @NotEmpty
+    @Email
     private String email;
 
     @Column(length = 16)
