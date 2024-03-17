@@ -7,6 +7,8 @@ import org.hibernate.validator.constraints.br.CPF;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -19,8 +21,12 @@ import jakarta.validation.constraints.NotEmpty;
 @Table(name = "usuario")
 public class UsuarioModel {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @Column(length = 11)
-    @Id @NotBlank
+    @NotBlank
     @CPF
     private String cpf;
 
@@ -115,7 +121,13 @@ public class UsuarioModel {
         this.cartoes = cartoes;
     }
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     
 }
