@@ -10,7 +10,6 @@ import com.booknook.booknook_springboot.repositories.UsuarioRepository;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,9 +23,6 @@ public class UsuarioController {
 
     @Autowired
     UsuarioRepository usuarioRepository;
-
-    @Autowired
-    PasswordEncoder passwordEncoder;
 
     UsuarioModel usuarioModel = new UsuarioModel();
 
@@ -43,8 +39,6 @@ public class UsuarioController {
 
     @PostMapping
     UsuarioModel postUsuarioModel(@RequestBody UsuarioModel usuarioModel){
-        String senhaHash = passwordEncoder.encode(usuarioModel.getSenha());
-        usuarioModel.setSenha(senhaHash);
         return usuarioRepository.save(usuarioModel);
     }
     

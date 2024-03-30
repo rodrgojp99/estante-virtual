@@ -32,7 +32,7 @@ public class CartaoModel {
     @Column
     @NotBlank @NotEmpty
     @DateTimeFormat(pattern = "MM/yyyy")
-    private Date validade;
+    private String validade;
 
     @Column(length = 3)
     @NotBlank @NotEmpty
@@ -50,11 +50,11 @@ public class CartaoModel {
         this.numero = numero;
     }
 
-    public Date getValidade() {
+    public String getValidade() {
         return validade;
     }
 
-    public void setValidade(Date validade) {
+    public void setValidade(String validade) {
         this.validade = validade;
     }
 
