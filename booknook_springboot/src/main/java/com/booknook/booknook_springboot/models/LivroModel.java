@@ -13,6 +13,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "livro")
@@ -27,11 +28,11 @@ public class LivroModel {
     private String nome;
 
     @Column
-    @NotBlank @NotEmpty
+    @NotNull
     private float valor;
 
     @Column
-    @NotBlank @NotEmpty
+    @NotNull
     private int qnt_estoque;
 
     @Column(length = 50)
@@ -49,14 +50,14 @@ public class LivroModel {
     private String cor;
 
     @Column
-    @NotBlank @NotEmpty
+    @NotNull
     private float peso;
 
     @Column(length = 50)
     @NotBlank @NotEmpty  
     private String dimensoes;
 
-    @NotBlank @NotEmpty  
+    @NotNull  
     private int classificacao;
 
     @ManyToOne
