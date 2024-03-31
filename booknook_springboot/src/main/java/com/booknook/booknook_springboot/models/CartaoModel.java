@@ -2,6 +2,8 @@ package com.booknook.booknook_springboot.models;
 
 
 import org.springframework.format.annotation.DateTimeFormat;
+import java.sql.Date;
+import java.sql.Time;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -29,11 +31,9 @@ public class CartaoModel {
 
     @Column
     @NotBlank @NotEmpty
-    @DateTimeFormat(pattern = "MM/yyyy")
-    private String validade;
+    private Date validade;
 
     @Column(length = 3)
-    @NotBlank @NotEmpty
     private String cvc;
 
     @ManyToOne
@@ -48,11 +48,11 @@ public class CartaoModel {
         this.numero = numero;
     }
 
-    public String getValidade() {
+    public Date getValidade() {
         return validade;
     }
 
-    public void setValidade(String validade) {
+    public void setValidade(Date validade) {
         this.validade = validade;
     }
 
