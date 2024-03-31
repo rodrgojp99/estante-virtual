@@ -1,10 +1,6 @@
 package com.booknook.booknook_springboot.models;
 
 
-import org.springframework.format.annotation.DateTimeFormat;
-import java.sql.Date;
-import java.sql.Time;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,7 +16,6 @@ import jakarta.validation.constraints.NotEmpty;
 @Table(name = "cartao")
 public class CartaoModel {
 
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -31,9 +26,10 @@ public class CartaoModel {
 
     @Column
     @NotBlank @NotEmpty
-    private Date validade;
+    private String validade;
 
     @Column(length = 3)
+    @NotBlank @NotEmpty
     private String cvc;
 
     @ManyToOne
@@ -48,11 +44,11 @@ public class CartaoModel {
         this.numero = numero;
     }
 
-    public Date getValidade() {
+    public String getValidade() {
         return validade;
     }
 
-    public void setValidade(Date validade) {
+    public void setValidade(String validade) {
         this.validade = validade;
     }
 
