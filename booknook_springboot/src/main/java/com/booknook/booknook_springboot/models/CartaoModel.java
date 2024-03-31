@@ -1,8 +1,6 @@
 package com.booknook.booknook_springboot.models;
 
 
-import java.sql.Date;
-
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Column;

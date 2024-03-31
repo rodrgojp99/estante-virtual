@@ -11,8 +11,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 
@@ -41,7 +39,6 @@ public class LivroModel {
     private String editora;
 
     @Column
-    @Temporal(TemporalType.DATE)
     private Date dia_venda;
 
     @Column
