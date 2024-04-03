@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.hibernate.validator.constraints.br.CPF;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,7 +27,7 @@ public class UsuarioModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 11)
+    @Column(length = 11, unique = true)
     @NotBlank
     @CPF
     private String cpf;
@@ -34,12 +36,12 @@ public class UsuarioModel {
     @NotBlank @NotEmpty
     private String nome;
     
-    @Column(length = 45)
+    @Column(length = 45, unique = true)
     @NotBlank @NotEmpty
     @Email
     private String email;
 
-    @Column(length = 16)
+    @Column(length = 16, unique = true)
     @NotBlank @NotEmpty
     private String telefone;
 
@@ -47,7 +49,7 @@ public class UsuarioModel {
     private String endereco;
 
     @Column
-    @OneToMany(mappedBy = "usuario")
+    @OneToMany(mappedBy = "usuario") @JsonIgnore
     private List<CartaoModel> cartoes;
 
     @Column(length = 8)

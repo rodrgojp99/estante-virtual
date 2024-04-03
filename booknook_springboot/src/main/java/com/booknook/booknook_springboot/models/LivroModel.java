@@ -3,12 +3,15 @@ package com.booknook.booknook_springboot.models;
 import java.sql.Date;
 import java.sql.Time;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
@@ -60,7 +63,10 @@ public class LivroModel {
     @NotNull  
     private int classificacao;
 
-    @ManyToOne
+    @Lob
+    private String sinopse;
+
+    @ManyToOne @JsonIgnore
     @JoinColumn(name = "cpf_usuario", nullable = true)
     private UsuarioModel usuario;
 
@@ -158,6 +164,14 @@ public class LivroModel {
 
     public void setUsuario(UsuarioModel usuario) {
         this.usuario = usuario;
+    }
+
+    public String getSinopse() {
+        return sinopse;
+    }
+
+    public void setSinopse(String sinopse) {
+        this.sinopse = sinopse;
     }
 
 }
