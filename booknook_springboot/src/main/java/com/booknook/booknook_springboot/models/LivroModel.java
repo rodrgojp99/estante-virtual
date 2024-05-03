@@ -66,6 +66,9 @@ public class LivroModel {
     @Lob
     private String sinopse;
 
+    @Column(unique = true)
+    private String isbn;
+
     @ManyToOne @JsonIgnore
     @JoinColumn(name = "cpf_usuario", nullable = true)
     private UsuarioModel usuario;
@@ -174,4 +177,11 @@ public class LivroModel {
         this.sinopse = sinopse;
     }
 
+    public String getIsbn(){
+        return isbn;
+    }
+
+    public void setIsbn( String isbn){
+        this.isbn = isbn;
+    }
 }
